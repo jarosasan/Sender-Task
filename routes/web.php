@@ -11,10 +11,21 @@
 |
 */
 
+Route::get('/admin', function () {
+    return view('auth.login');
+});
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.login');
 });
 
 Auth::routes();
+
+Route::get('/admin/dashboard', function(){
+    return view('admin.admin');
+});
+
+Route::resource('admin/users', 'UsersController');
+Route::resource('admin/meals', 'MealController');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
