@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMealsPlanTable extends Migration
+class CreateUserOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateMealsPlanTable extends Migration
      */
     public function up()
     {
-        Schema::create('meals_plan', function (Blueprint $table) {
+        Schema::create('user_orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->date('created_at');
+            $table->smallInteger('status')->default(0);
+            $table->float('sum_total')->default(0);
+            $table->date('date');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 
@@ -28,9 +31,9 @@ class CreateMealsPlanTable extends Migration
      */
     public function down()
     {
-        Schema::table('meals_plan', function (Blueprint $table) {
+        Schema::create('user_orders', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
         });
-        Schema::dropIfExists('meals_plan');
+        Schema::dropIfExists('user_orders');
     }
 }

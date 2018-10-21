@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@include('layouts.menu')
+@include('admin.partials.menu')
 @section('content')
     <div class="container">
         <div class="row">
@@ -16,7 +16,6 @@
                         <th >Name</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Orders</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -27,9 +26,6 @@
                         <th>{{$user->name}}</th>
                         <th>{{$user->email}}</th>
                         <th>{{$user->role}}</th>
-                        <th>
-                            <a role="button" class="btn btn-outline-primary" href="">Orders</a>
-                        </th>
                         <th>
                             <form action="{{route('users.destroy', $user->id)}}" method="post">
                                 {!! csrf_field() !!}
@@ -108,7 +104,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label ">Confirm Password</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                                 </div>
                             </div>
 

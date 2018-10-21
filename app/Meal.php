@@ -12,8 +12,14 @@ class Meal extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'price', 'size', 'veg',
+        'title', 'price', 'category_id',
     ];
 
-    public $timestamps = false;
+    public function category(){
+        return $this->belongsTo('App\MealCategory');
+    }
+
+    public function plan(){
+        return $this->belongsTo('App\MealPlan');
+    }
 }

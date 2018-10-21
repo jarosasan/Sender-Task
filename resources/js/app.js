@@ -6,17 +6,14 @@
  */
 
 require('./bootstrap');
+var $ = require('jquery');
 
 window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
+$(document).ready(function() {
+    var page = $('.tab-content').children('div').attr('id');
+    $('.nav-tabs').find('.active').attr('aria-selected', 'false');
+    $('.nav-tabs').find('.active').removeClass('active');
+    $('.nav-tabs li a[name='+page+']').addClass('active');
+    $('.nav-tabs li a[name='+page+']').attr('aria-selected', 'true');
 });

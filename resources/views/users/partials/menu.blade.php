@@ -8,10 +8,8 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Features</a>
-                    <a class="nav-item nav-link" href="#">Pricing</a>
-                    <a class="nav-item nav-link" href="{{route('meals.index')}}">Meals</a>
-                    <a class="nav-item nav-link" href="{{route('users.index')}}">Users</a>
+                    <a class="nav-item nav-link" href="#">Orders/a>
+                    <a class="nav-item nav-link" href="{{route('plan.index')}}">Meniu</a>
                 </div>
             </div>
             <ul class="navbar-nav ml-auto">
